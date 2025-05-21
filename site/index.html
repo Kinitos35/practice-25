@@ -3,327 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ЭкоПроект - Устойчивое развитие городов</title>
-    <style>
-        /* Общие стили */
-        :root {
-            --primary: #2e7d32;
-            --secondary: #81c784;
-            --dark: #1b5e20;
-            --light: #f1f8e9;
-            --text: #333;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f9f9f9;
-            color: var(--text);
-            line-height: 1.6;
-        }
-        
-        /* Шапка */
-        header {
-            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Навигация */
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: var(--primary);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1.5rem;
-            margin: 0 0.5rem;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        nav a:hover, nav a.active {
-            background-color: var(--secondary);
-            color: var(--dark);
-        }
-        
-        /* Основной контент */
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
-        
-        /* Секции */
-        .section {
-            margin-bottom: 3rem;
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-        }
-        
-        .section-title {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--secondary);
-        }
-        
-        /* Кнопки */
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 0.8rem 1.8rem;
-            text-decoration: none;
-            border-radius: 30px;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        
-        .btn:hover {
-            background: var(--dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        /* Герой-баннер */
-        .hero {
-            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            padding: 2rem;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        /* Карточки */
-        .card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            margin-bottom: 2rem;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .card-img {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .card:hover .card-img img {
-            transform: scale(1.05);
-        }
-        
-        .card-body {
-            padding: 1.5rem;
-        }
-        
-        .card-title {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .card-date {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        
-        /* Участники */
-        .team {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .member {
-            text-align: center;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        
-        .member-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 1rem;
-            border: 5px solid var(--secondary);
-        }
-        
-        .member-name {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-        
-        .member-role {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-        
-        /* Ресурсы */
-        .resources {
-            margin-top: 2rem;
-        }
-        
-        .resource-item {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .resource-item:last-child {
-            border-bottom: none;
-        }
-        
-        .resource-title {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-        
-        .resource-link {
-            color: var(--primary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .resource-link:hover {
-            color: var(--dark);
-            text-decoration: underline;
-        }
-        
-        /* Подвал */
-        footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            margin: 1rem 0;
-        }
-        
-        .footer-links a {
-            color: white;
-            margin: 0 1rem;
-            text-decoration: none;
-        }
-        
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav a {
-                margin: 0.3rem 0;
-                width: 100%;
-                text-align: center;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .team {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <title>Многоцветный 3D-принтер - ПО для многоматериальной 3D-печати</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Шапка -->
     <header>
-        <div class="logo">ЭкоПроект</div>
-        <p>Устойчивое развитие городской среды</p>
+        <div class="logo">
+            <span class="material-icons logo-icon">print</span>
+            <span>Многоцветный 3D-принтер</span>
+        </div>
+        <p>Программное обеспечение для системы многоматериальной 3D-печати</p>
     </header>
     
     <!-- Навигация -->
@@ -341,42 +33,27 @@
         <section id="home" class="section">
             <div class="hero">
                 <div class="hero-content">
-                    <h1>Инновационные решения для устойчивого развития городов</h1>
-                    <p>Наш проект направлен на создание экологически устойчивой городской среды с использованием современных технологий и подходов</p>
-                    <a href="#about" class="btn">Узнать больше</a>
+                    <h1>Разработка ПО для 3D-принтера с системой многоматериальной печати</h1>
+                    <p>Инновационное программное решение для точного управления сменой материалов в процессе 3D-печати</p>
+                    <a href="#about" class="btn">Подробнее о проекте</a>
                 </div>
             </div>
             
-            <h2 class="section-title">Ключевые аспекты проекта</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;">
-                <div class="card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1582719471384-8d8d7ab9fc8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Экология">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">Экологичность</h3>
-                        <p>Разработка решений, снижающих экологическую нагрузку на городскую среду</p>
-                    </div>
+            <h2 class="section-title">Ключевые особенности</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3 class="feature-title"><span class="material-icons">swap_horiz</span>Система смены материала</h3>
+                    <p>Разработка механики системы смены материала и доработка программного обеспечения для точного управления процессом</p>
                 </div>
                 
-                <div class="card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Технологии">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">Технологии</h3>
-                        <p>Внедрение инновационных технологий для умного города</p>
-                    </div>
+                <div class="feature">
+                    <h3 class="feature-title"><span class="material-icons">settings</span>Интеграция с оборудованием</h3>
+                    <p>ПО будет обращаться к электронике 3D-принтера для передачи команд по замене материала в процессе печати</p>
                 </div>
                 
-                <div class="card">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1486401899868-0e435ed85128?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Сообщество">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">Сообщество</h3>
-                        <p>Вовлечение жителей в процесс улучшения городской среды</p>
-                    </div>
+                <div class="feature">
+                    <h3 class="feature-title"><span class="material-icons">insights</span>Актуальность решения</h3>
+                    <p>Решение проблемы существующего ПО, которое не позволяет правильно и точно рассчитывать смену материала во время печати</p>
                 </div>
             </div>
         </section>
@@ -384,146 +61,82 @@
         <!-- О проекте -->
         <section id="about" class="section" style="display: none;">
             <h2 class="section-title">О проекте</h2>
-            <p>Наш проект "Устойчивое развитие городской среды" направлен на создание комплексного подхода к решению экологических проблем современных городов. Мы разрабатываем инновационные решения, которые помогут сделать города более экологичными, комфортными для жизни и устойчивыми в долгосрочной перспективе.</p>
             
-            <h3 style="margin: 1.5rem 0 1rem; color: var(--dark);">Основные цели:</h3>
-            <ul style="margin-left: 2rem; margin-bottom: 1.5rem;">
-                <li style="margin-bottom: 0.5rem;">Снижение углеродного следа городской инфраструктуры</li>
-                <li style="margin-bottom: 0.5rem;">Оптимизация использования ресурсов (вода, энергия, земля)</li>
-                <li style="margin-bottom: 0.5rem;">Создание "зеленых" зон и улучшение качества воздуха</li>
-                <li style="margin-bottom: 0.5rem;">Разработка умных систем мониторинга экологических показателей</li>
-            </ul>
-            
-            <div style="margin: 2rem 0;">
-                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Схема проекта" style="width: 100%; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.2);">
-                <p style="text-align: center; margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Концептуальная схема устойчивого городского развития</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Цель проекта</h3>
+                    <p>Разработка программного обеспечения для управления системой многоматериальной печати на 3D-принтере, включая механику системы смены материала и алгоритмы точного расчета моментов смены материалов в процессе печати.</p>
+                    
+                    <h3>Актуальность</h3>
+                    <p>3D-печать становится не только средством создания прототипов, но и методом конечного производства готовых изделий. Возможность создания изделий с различными свойствами с помощью многоматериальной печати открывает новые горизонты в производстве, но существующее ПО не обеспечивает точного расчета смены материала во время печати.</p>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="3D-принтер">
+                </div>
             </div>
             
-            <h3 style="margin: 1.5rem 0 1rem; color: var(--dark);">Этапы реализации:</h3>
-            <div style="background: var(--light); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                <ol>
-                    <li style="margin-bottom: 0.8rem;"><strong>Аналитический этап:</strong> Исследование текущего состояния городской среды</li>
-                    <li style="margin-bottom: 0.8rem;"><strong>Проектирование:</strong> Разработка концепций и технических решений</li>
-                    <li style="margin-bottom: 0.8rem;"><strong>Тестирование:</strong> Пилотные проекты в отдельных районах</li>
-                    <li style="margin-bottom: 0.8rem;"><strong>Внедрение:</strong> Масштабирование успешных решений на весь город</li>
-                </ol>
-            </div>
-            
-            <div style="margin-top: 2rem;">
-                <iframe width="100%" height="400" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>
-                <p style="text-align: center; margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Видеопрезентация проекта</p>
-            </div>
+            <h3>Ожидаемые результаты</h3>
+            <div class="results-list">
+                <ul>
+                    <li>Функционирующее ПО для управления многоматериальной печатью</li>
+                    <li>Алгоритмы точного расчета моментов смены материала</li>
+                    <li>Интеграция с электроникой 3D-принтера</li>
+                    <li>Документация по использованию системы</li>
+                </ul>
+            </div>      
         </section>
         
         <!-- Участники -->
         <section id="team" class="section" style="display: none;">
             <h2 class="section-title">Участники проекта</h2>
-            <p>Над проектом работает команда специалистов из разных областей, объединенных общей целью создания устойчивой городской среды.</p>
             
             <div class="team">
                 <div class="member">
-                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Анна" class="member-img">
-                    <h3 class="member-name">Анна Смирнова</h3>
-                    <p class="member-role">Руководитель проекта</p>
-                    <p>Координация работы команды, связь с партнерами, общее руководство проектом.</p>
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Алексей" class="member-img">
+                    <h3 class="member-name">Моисеев Никита</h3>
+                    <p class="member-contribution">Помогал в создании презентации проекта.</p>
                 </div>
                 
-                <div class="member">
-                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Иван" class="member-img">
-                    <h3 class="member-name">Иван Петров</h3>
-                    <p class="member-role">Технический директор</p>
-                    <p>Разработка технических решений, внедрение технологий, контроль качества.</p>
-                </div>
-                
-                <div class="member">
-                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Елена" class="member-img">
-                    <h3 class="member-name">Елена Козлова</h3>
-                    <p class="member-role">Эколог</p>
-                    <p>Анализ экологической ситуации, разработка природоохранных мер.</p>
-                </div>
-                
-                <div class="member">
-                    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Дмитрий" class="member-img">
-                    <h3 class="member-name">Дмитрий Соколов</h3>
-                    <p class="member-role">Программист</p>
-                    <p>Разработка ПО для мониторинга, создание дашбордов и аналитических инструментов.</p>
-                </div>
             </div>
             
-            <div style="margin-top: 3rem; background: var(--light); padding: 1.5rem; border-radius: 8px;">
-                <h3 style="color: var(--dark); margin-bottom: 1rem;">Распределение обязанностей</h3>
-                <table style="width: 100%; border-collapse: collapse;">
-                    <thead>
-                        <tr style="background: var(--primary); color: white;">
-                            <th style="padding: 0.8rem; text-align: left;">Участник</th>
-                            <th style="padding: 0.8rem; text-align: left;">Обязанности</th>
-                            <th style="padding: 0.8rem; text-align: left;">Вклад</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="border-bottom: 1px solid #ddd;">
-                            <td style="padding: 0.8rem;">Анна Смирнова</td>
-                            <td style="padding: 0.8rem;">Управление проектом</td>
-                            <td style="padding: 0.8rem;">30%</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #ddd;">
-                            <td style="padding: 0.8rem;">Иван Петров</td>
-                            <td style="padding: 0.8rem;">Техническая реализация</td>
-                            <td style="padding: 0.8rem;">25%</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #ddd;">
-                            <td style="padding: 0.8rem;">Елена Козлова</td>
-                            <td style="padding: 0.8rem;">Экологический анализ</td>
-                            <td style="padding: 0.8rem;">25%</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 0.8rem;">Дмитрий Соколов</td>
-                            <td style="padding: 0.8rem;">Разработка ПО</td>
-                            <td style="padding: 0.8rem;">20%</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            
         </section>
         
         <!-- Журнал -->
         <section id="journal" class="section" style="display: none;">
             <h2 class="section-title">Журнал проекта</h2>
-            <p>Здесь мы публикуем новости о ходе работы над проектом, достижениях и планах.</p>
+            <p>Последние новости и отчеты о ходе работы над проектом.</p>
             
-            <div class="card" style="margin-top: 2rem;">
-                <div class="card-img">
-                    <img src="https://images.unsplash.com/photo-1521747116042-5a810fda9664?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Старт проекта">
+            <div class="journal-entries">
+                <div class="entry">
+                    
+                    <div class="entry-content">
+                        <h3>Начало работы над проектом</h3>
+                        <p class="entry-date"><span class="material-icons">event</span>февраль - начало марта</p>
+                        <p>Распределили задачи. Разработка 3D-прототипа. Начало создание ПО </p>
+                        
+                    </div>
                 </div>
-                <div class="card-body">
-                    <h3 class="card-title">Старт проекта</h3>
-                    <p class="card-date">15 января 2023</p>
-                    <p>Мы официально начали работу над проектом "Устойчивое развитие городской среды". Проведены первые встречи с партнерами, определены ключевые направления работы. Сформирована команда проекта и распределены роли.</p>
-                    <a href="#" class="btn">Читать далее</a>
+                
+                <div class="entry">
+
+                    <div class="entry-content">
+                        <h3>Разработка первого прототипа</h3>
+                        <p class="entry-date"><span class="material-icons">event</span>конец марта - середина апрели</p>
+                        <p>Создание 3D-модели</p>
+                      
+                    </div>
                 </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-img">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Первые результаты">
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">Первые результаты анализа</h3>
-                    <p class="card-date">28 февраля 2023</p>
-                    <p>Завершен первый этап экологического анализа городской среды. Выявлены ключевые проблемы: высокий уровень загрязнения воздуха в центре города, недостаток зеленых зон, неэффективное использование водных ресурсов.</p>
-                    <a href="#" class="btn">Читать далее</a>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-img">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Пилотный проект">
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">Запуск пилотного проекта</h3>
-                    <p class="card-date">15 апреля 2023</p>
-                    <p>В одном из районов города начата реализация пилотного проекта по озеленению и внедрению умных систем мониторинга. Установлены первые датчики качества воздуха, начата посадка деревьев по новой схеме.</p>
-                    <a href="#" class="btn">Читать далее</a>
+                
+                <div class="entry">
+                    
+                    <div class="entry-content">
+                        <h3>Доработка 3D-принтера</h3>
+                        <p class="entry-date"><span class="material-icons">event</span>конец апреля - май</p>
+                        <p>Изготовление составляющих 3D-модели. Собрка мини-устанвоки на принтере. Завершение создание ПО</p>
+                       
+                    </div>
                 </div>
             </div>
         </section>
@@ -531,105 +144,58 @@
         <!-- Ресурсы -->
         <section id="resources" class="section" style="display: none;">
             <h2 class="section-title">Полезные ресурсы</h2>
-            <p>Здесь собраны материалы, которые помогут лучше понять наш проект и тему устойчивого городского развития.</p>
+            <p>Материалы, которые помогут лучше понять наш проект и технологии многоматериальной 3D-печати.</p>
             
-            <div class="resources">
-                <div class="resource-item">
-                    <h3 class="resource-title">Официальный сайт организации-партнера</h3>
-                    <a href="https://www.un.org/sustainabledevelopment/cities/" class="resource-link" target="_blank">https://www.un.org/sustainabledevelopment/cities/</a>
-                    <p>Программа ООН по устойчивому развитию городов</p>
+            <div class="resources-list">
+                <div class="resource">
+                    <h3><span class="material-icons">link</span>Официальный сайт партнера</h3>
+                    <a href="https://www.lider-3d.ru" target="_blank">https://www.lider-3d.ru</a>
+                    <p>Сайт компании Lider-3D - партнера нашего проекта</p>
                 </div>
                 
-                <div class="resource-item">
-                    <h3 class="resource-title">Ключевые принципы устойчивого развития</h3>
-                    <a href="https://www.worldbank.org/en/topic/urbandevelopment/overview" class="resource-link" target="_blank">https://www.worldbank.org/en/topic/urbandevelopment/overview</a>
-                    <p>Материалы Всемирного банка по городскому развитию</p>
+                <div class="resource">
+                    <h3><span class="material-icons">article</span>Технологии многоматериальной печати</h3>
+                    <a href="https://cyberleninka.ru/article/n/sovremennye-polimernye-materialy-i-tehnologii-3d-pechati/viewer" target="_blank">https://cyberleninka.ru/article/n/sovremennye-polimernye-materialy-i-tehnologii-3d-pechati/viewer</a>
+                    <p>Научная статья о современных подходах к многоматериальной 3D-печати</p>
                 </div>
                 
-                <div class="resource-item">
-                    <h3 class="resource-title">Исследования по экологичным городам</h3>
-                    <a href="https://www.nature.com/articles/s41893-019-0440-x" class="resource-link" target="_blank">https://www.nature.com/articles/s41893-019-0440-x</a>
-                    <p>Научная статья о подходах к созданию устойчивых городов</p>
-                </div>
-                
-                <div class="resource-item">
-                    <h3 class="resource-title">Примеры успешных проектов</h3>
-                    <a href="https://smartcitiescouncil.com/" class="resource-link" target="_blank">https://smartcitiescouncil.com/</a>
-                    <p>Кейсы умных городов по всему миру</p>
+                <div class="resource">
+                    <h3><span class="material-icons">code</span>Открытые решения для 3D-печати</h3>
+                    <a href="https://github.com/marlinfirmware/marlin" target="_blank">https://github.com/marlinfirmware/marlin</a>
+                    <p>Прошивка Marlin - популярное открытое решение для управления 3D-принтерами</p>
                 </div>
             </div>
-            
-            <div style="margin-top: 3rem;">
-                <h3 style="color: var(--dark); margin-bottom: 1rem;">Дополнительные материалы</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <div style="background: var(--light); padding: 1rem; border-radius: 8px; text-align: center;">
-                            <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" style="width: 50px; margin-bottom: 0.5rem;">
-                            <p style="color: var(--primary); font-weight: bold;">Брошюра проекта</p>
-                        </div>
-                    </a>
-                    
-                    <a href="#" style="text-decoration: none;">
-                        <div style="background: var(--light); padding: 1rem; border-radius: 8px; text-align: center;">
-                            <img src="https://cdn-icons-png.flaticon.com/512/337/337958.png" alt="PPT" style="width: 50px; margin-bottom: 0.5rem;">
-                            <p style="color: var(--primary); font-weight: bold;">Презентация</p>
-                        </div>
-                    </a>
-                    
-                    <a href="#" style="text-decoration: none;">
-                        <div style="background: var(--light); padding: 1rem; border-radius: 8px; text-align: center;">
-                            <img src="https://cdn-icons-png.flaticon.com/512/337/337956.png" alt="XLS" style="width: 50px; margin-bottom: 0.5rem;">
-                            <p style="color: var(--primary); font-weight: bold;">Данные исследования</p>
-                        </div>
-                    </a>
-                </div>
+
             </div>
         </section>
     </div>
     
     <!-- Подвал -->
     <footer>
-        <div class="footer-links">
-            <a href="#home">Главная</a>
-            <a href="#about">О проекте</a>
-            <a href="#team">Участники</a>
-            <a href="#journal">Журнал</a>
-            <a href="#resources">Ресурсы</a>
+        <div class="footer-content">
+            <div class="footer-logo">Многоцветный 3D-принтер</div>
+            <p>Программное обеспечение для системы многоматериальной 3D-печати</p>
+            
+            <div class="footer-links">
+                <a href="#home">Главная</a>
+                <a href="#about">О проекте</a>
+                <a href="#team">Участники</a>
+                <a href="#journal">Журнал</a>
+                <a href="#resources">Ресурсы</a>
+                <a href="#">Контакты</a>
+            </div>
+            
+            <div class="partner-logo">
+                <p>Партнер проекта:</p>
+                <a href="https://www.lider-3d.ru" target="_blank">
+                    <img src="https://via.placeholder.com/200x60?text=Lider-3D" alt="Lider-3D">
+                </a>
+            </div>
+            
+            
         </div>
-        <p>© 2023 Проект "Устойчивое развитие городской среды"</p>
-        <p>Контактный email: eco-project@example.com</p>
     </footer>
-    
-    <script>
-        // Простая навигация между разделами
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Скрыть все разделы
-                document.querySelectorAll('.section').forEach(section => {
-                    section.style.display = 'none';
-                });
-                
-                // Показать выбранный раздел
-                const targetId = this.getAttribute('href');
-                document.querySelector(targetId).style.display = 'block';
-                
-                // Прокрутить к разделу
-                document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
-                
-                // Обновить активную ссылку
-                document.querySelectorAll('nav a').forEach(navLink => {
-                    navLink.classList.remove('active');
-                });
-                this.classList.add('active');
-            });
-        });
-        
-        // Показать главную страницу при загрузке
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelector('#home').style.display = 'block';
-        });
-    </script>
+
+    <script src="script.js"></script>
 </body>
 </html>
