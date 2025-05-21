@@ -3,39 +3,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Мой Статический Сайт</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Гид Хаб - Сообщество профессиональных гидов</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e5799 0%, #207cca 100%);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 0.5rem 0;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #555;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .hero {
+            background: url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #207cca;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background: #1e5799;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #207cca;
+        }
+        
+        .guides {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .guide-card {
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .guide-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .guide-img {
+            height: 200px;
+            background: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .guide-info {
+            padding: 1.5rem;
+        }
+        
+        .guide-info h3 {
+            margin-bottom: 0.5rem;
+            color: #207cca;
+        }
+        
+        .guide-info p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Добро пожаловать на мой сайт!</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">О проекте</a></li>
-                <li><a href="#resources">Ресурсы</a></li>
-                <li><a href="#contact">Контакты</a></li>
-            </ul>
-        </nav>
+        <h1>Гид Хаб</h1>
+        <p>Сообщество профессиональных гидов и экскурсоводов</p>
     </header>
     
-    <section id="about">
-        <h2>О проекте</h2>
-        <p>Это пример статического сайта для моего проекта. Здесь можно будет добавить описание проекта и другие материалы.</p>
-    </section>
+    <nav>
+        <a href="#home">Главная</a>
+        <a href="#guides">Наши гиды</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#contact">Контакты</a>
+    </nav>
     
-    <section id="resources">
-        <h2>Ресурсы</h2>
-        <p>Ссылки на полезные материалы, документы и ресурсы будут здесь.</p>
-    </section>
-
-    <section id="contact">
-        <h2>Контакты</h2>
-        <p>Здесь можно указать контактную информацию или форму для связи.</p>
-    </section>
-
+    <div class="container">
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Откройте мир с профессиональными гидами</h1>
+                <p>Найдите идеального гида для вашего следующего приключения</p>
+                <a href="#guides" class="btn">Найти гида</a>
+            </div>
+        </section>
+        
+        <section id="guides">
+            <h2 class="section-title">Наши гиды</h2>
+            <div class="guides">
+                <div class="guide-card">
+                    <div class="guide-img" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+                    <div class="guide-info">
+                        <h3>Анна Петрова</h3>
+                        <p>Эксперт по историческим экскурсиям. Стаж 10 лет.</p>
+                        <a href="#" class="btn">Подробнее</a>
+                    </div>
+                </div>
+                
+                <div class="guide-card">
+                    <div class="guide-img" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+                    <div class="guide-info">
+                        <h3>Иван Сидоров</h3>
+                        <p>Гид по природным заповедникам. Биолог.</p>
+                        <a href="#" class="btn">Подробнее</a>
+                    </div>
+                </div>
+                
+                <div class="guide-card">
+                    <div class="guide-img" style="background-image: url('https://via.placeholder.com/300x200');"></div>
+                    <div class="guide-info">
+                        <h3>Мария Козлова</h3>
+                        <p>Гастрономические туры. Знаток местной кухни.</p>
+                        <a href="#" class="btn">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="gallery">
+            <h2 class="section-title">Наши экскурсии</h2>
+            <div class="gallery">
+                <img src="https://via.placeholder.com/250x200" alt="Экскурсия 1">
+                <img src="https://via.placeholder.com/250x200" alt="Экскурсия 2">
+                <img src="https://via.placeholder.com/250x200" alt="Экскурсия 3">
+                <img src="https://via.placeholder.com/250x200" alt="Экскурсия 4">
+                <img src="https://via.placeholder.com/250x200" alt="Экскурсия 5">
+                <img src="https://via.placeholder.com/250x200" alt="Экскурсия 6">
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2 class="section-title">Свяжитесь с нами</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Отправить</button>
+                </form>
+            </div>
+        </section>
+    </div>
+    
     <footer>
-        <p>© 2025 Мой Статический Сайт</p>
+        <p>&copy; 2023 Гид Хаб. Все права защищены.</p>
+        <p>Телефон: +7 (123) 456-78-90 | Email: info@gidhub.ru</p>
     </footer>
 </body>
 </html>
